@@ -10,8 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.10",
+    "heatmap.js": "^2.0.5",
+    "leaflet": "^1.9.4",
+    "leaflet-defaulticon-compatibility": "^0.1.2",
+    "leaflet.heat": "^0.2.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-leaflet": "^5.0.0",
+    "tailwindcss": "^4.1.10"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

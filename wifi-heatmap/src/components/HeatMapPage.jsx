@@ -18,8 +18,8 @@ const HeatMapOverlay = ({points}) =>{
         const heatLayer = L.heatLayer(
             points.map(p => [p.lat, p.lng, p.strength]),
             {
-              radius: 25,
-              blur: 15,
+              radius: 40,
+              blur: 20,
               gradient: {
                 0.1: 'rgba(0, 0, 255, 0.4)',   // blue (low)
                 0.3: 'rgba(0, 255, 0, 0.4)',   // green

@@ -10,6 +10,9 @@ const SubmissionForm = ({onSubmitComplete}) => {
     const [usingGPS, setUsingGPS] = useState(false);
 
 
+    
+
+
 
       const handleSubmit = async (e) => {
         e.preventDefault();

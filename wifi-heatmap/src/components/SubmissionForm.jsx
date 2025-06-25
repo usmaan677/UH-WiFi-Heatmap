@@ -11,7 +11,9 @@ const SubmissionForm = ({onSubmitComplete}) => {
 
 
     
-
+    const roundToFourDecimals = (num)  =>{
+        return Math.round(num*10000)/10000;
+    }
 
 
       const handleSubmit = async (e) => {
@@ -22,8 +24,13 @@ const SubmissionForm = ({onSubmitComplete}) => {
         }
       
         let latLng;
+        let locationName;
         if (usingGPS) {
-          latLng = coords;
+          latLng = {
+            lat: roundToFourDecimals(coords.lat),
+            lng: roundToFourDecimals(coords.lng),
+          };
+          locationName = `User GPS Location - ${latLng.lat}, ${latLng.lng}`;
         } else {
           const locationCoordinates = {
             "Student Center South": { lat: 29.7201, lng: -95.3407 },
@@ -33,6 +40,7 @@ const SubmissionForm = ({onSubmitComplete}) => {
             "Moody Towers": { lat: 29.7177, lng: -95.3422 }
           };
           latLng = locationCoordinates[location];
+          locationName = location;
         }
 
         const submissionsRef = collection(db, "submissions");
@@ -51,7 +59,7 @@ const SubmissionForm = ({onSubmitComplete}) => {
     }
       
         await addDoc(collection(db, "submissions"), {
-          location: usingGPS ? "User GPS Location" : location,
+          location: locationName,
           strength,
           lat: latLng.lat,
           lng: latLng.lng,

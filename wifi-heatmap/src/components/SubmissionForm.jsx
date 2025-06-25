@@ -70,9 +70,9 @@ const SubmissionForm = ({onSubmitComplete}) => {
         onSubmitComplete();
       };
   return (
-    <div className = "w-full h-screen bg-gradient-to-br from-black via-gray-800 to-black p-20">
-        <h1 className = "text-6xl font-roboto text-center text-white  mb-6">Welcome to the UH Wifi Heatmap</h1>
-        <form onSubmit={handleSubmit} className = "p-6 bg-gray-400 rounded shadow max-w-md mx-auto">
+    <div className = " w-full h-screen bg-gradient-to-br from-black via-gray-800 to-black p-10 pt-20 relative">
+        <h1 className = "text-4xl font-bold md:text-6xl font-roboto text-center text-white  mb-6">Welcome to the UH Wifi Heatmap</h1>
+        <form onSubmit={handleSubmit} className = "p-6 md:mt-30 mt-10  bg-gray-400 rounded shadow max-w-md mx-auto">
             <h2 className ="text-xl font-bold mb-4">Rate Wifi Strength</h2>
             
 
@@ -110,7 +110,7 @@ const SubmissionForm = ({onSubmitComplete}) => {
                                 }
                             );
                             }}
-                            className = "cursor-pointer w-full mb-2  bg-green-600 text-white px-4 py-2 rounded">
+                            className = "cursor-pointer w-full mb-2  bg-green-600 text-white px-4 py-2 shadow-md rounded">
                                 Use My Location
                     </button>
                     <select
@@ -129,7 +129,7 @@ const SubmissionForm = ({onSubmitComplete}) => {
                 </>
             )}
         
-                <label className = "block mb-2 font-medium">WiFi Strength: {strength}</label>
+                <label className = "block mb-2 mt-5 font-medium">WiFi Strength: {strength}</label>
                 <input
                     id = "strength"
                     type = "range"
@@ -139,10 +139,15 @@ const SubmissionForm = ({onSubmitComplete}) => {
                     onChange = {(e) => setStrength(e.target.value)}
                     className = "w-full mb-4"
                 />
-                <button type="submit" className = "cursor-pointer bg-blue-600 text-white px-4 py-2 rounded">
-                    Submit
-                </button>
+                <div className = "flex justify-center items-center">
+                    <button type="submit" className = "cursor-pointer bg-blue-600 justify-center text-center text-white px-4 py-2 rounded">
+                        Submit
+                    </button>
+                </div>
         </form>
+        <div className = "absolute bottom-4 left-1/2 transform -translate-x-1/2  bg-blue-500 text-center mt-6 text-white rounded p-3 ">
+            <button onClick={() => onSubmitComplete() }>Proceed Without Submitting</button>
+        </div>
     </div>
   )
 }

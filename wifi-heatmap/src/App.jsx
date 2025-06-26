@@ -14,7 +14,7 @@ function App() {
       {!submitted?(
         <SubmissionForm onSubmitComplete={() => setSubmitted(true)} />
         ):(
-        <HeatMapPage/>
+        <HeatMapPage setSubmitted = {setSubmitted}/>
       )}
     </div>
     </>

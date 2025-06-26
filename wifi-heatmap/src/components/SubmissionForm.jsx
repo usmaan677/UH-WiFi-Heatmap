@@ -145,7 +145,7 @@ const SubmissionForm = ({onSubmitComplete}) => {
                     </button>
                 </div>
         </form>
-        <div className = "absolute bottom-4 left-1/2 transform -translate-x-1/2  bg-blue-500 text-center mt-6 text-white rounded p-3 ">
+        <div className = "absolute bottom-4 left-1/2 transform -translate-x-1/2  bg-blue-500 text-center mb-15 mt-6 text-white rounded-2xl p-3 ">
             <button onClick={() => onSubmitComplete() }>Proceed Without Submitting</button>
         </div>
     </div>

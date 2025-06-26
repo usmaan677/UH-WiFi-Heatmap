@@ -71,6 +71,8 @@ const HeatMapPage = ({setSubmitted}) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+
         const fetchData = async () => {
             const snapshot = await getDocs(collection(db, "submissions"));
             const data = snapshot.docs.map(doc => doc.data());
@@ -79,6 +81,8 @@ const HeatMapPage = ({setSubmitted}) => {
         };
         fetchData();
     }, [])
+
+
 
     useEffect(() => {
         const fetchHeatmapData = async () => {
@@ -119,12 +123,12 @@ const HeatMapPage = ({setSubmitted}) => {
             <div className ="text-white text-2xl md:text-6xl text-bold flex flex-grow items-center justify-center">Loading...</div>
         ) : (
             <>
-            <div className ="bg-gradient-to-br from-gray-700 via-gray-800 to-black p-5 md:p-3 flex justify-between">
+            <div className ="bg-gradient-to-br px-6 from-gray-700 via-gray-800 to-black p-5 md:p-3 flex justify-between">
                 <div className='flex gap-4 items-center md:gap-6 md:text-2xl  text-white font-roboto font-bold'>
-                    <img src="/wifilogo.png" alt = "UH Wifi Logo" onClick ={() => setSubmitted(false) } className ='cursor-pointer h-17 w-17 md:ml-5 md:w-20 md:h-20 rounded-full'/>
+                    <img src="/wifilogo.png" alt = "UH Wifi Logo" onClick ={() => setSubmitted(false) } className ='cursor-pointer h-17 w-17 md:ml-5 md:w-20 md:h-20 rounded-xl '/>
                     <h2 onClick ={() => setSubmitted(false) }className ='hidden md:block cursor-pointer'>UH WiFi Heatmap</h2>
                 </div>
-                <button className ="cursor-pointer bg-blue-500 p-2 md:px-6 text-white rounded-2xl font-roboto self-center md:p-2 md:mr-5" onClick={()=> setSubmitted(false)}>Go Back</button>
+                <button className ="cursor-pointer bg-blue-500 p-2 px-4  md:px-6 text-white rounded-2xl font-roboto self-center md:p-2 md:mr-5" onClick={()=> setSubmitted(false)}>Go Back</button>
 
             </div>
             <MapContainer
